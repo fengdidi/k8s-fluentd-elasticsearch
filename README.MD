@@ -21,7 +21,11 @@ logs are collected by this image:
 For more details, please check yaml/fluentd-es-configmap.yaml
 
 ## How to use
-First,you need to build the image by yourself. Simply go into the Image directory, and run:
+Before you deploy this log collector on your Kubernetes node, you have to label your node by this command:
+```
+kubectl label nodes nodename beta.kubernetes.io/fluentd-ds-ready=true
+```
+Then, you need to build the image by yourself. Simply go into the Image directory, and run:
 ```
 docker build -t dockerhub.fengdidi:5000/fengdidi/fluentd-elasticsearch:1801 .
 docker push dockerhub.fengdidi:5000/fengdidi/fluentd-elasticsearch:1801
